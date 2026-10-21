@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2> Student Information</h2>
+    <button onClick="loadStudents()">Load Students</button>
+    <div id="result"></div>
+    <script>
+        function loadStudents()
+        {
+            let xhr = new XMLHttpRequest();
+            xhr.open("Get","student.json",true);
+            xhr.onload = function()
+            {
+                if(xhr.status == 200)
+            {
+                let students = JSON.parse(xhr.responseText);
+                let output="";
+                for(let student of students)
+            {
+                output+=
+                "<p"+
+                "Name: "+student.name +"<br>"+
+                 "Age: "+student.age +"<br>"+
+                  "Course: "+student.courze +"<br>"+
+                   "City: "+student.city +"<br>"+
+                   "</p><hr>";
+
+            }
+
+            document.getElementById("result").innerHTML = output;
+            }
+            else
+            {
+                document.getElementById("result").innerHTML = 
+                "Error loading data";
+            }
+            };
+
+            xhr.send();
+
+        }
+    </script>
+</body>
+</html>

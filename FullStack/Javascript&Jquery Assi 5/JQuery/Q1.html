@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Length Counter</title>
+
+    <!-- jQuery CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        textarea {
+            width: 300px;
+            height: 120px;
+            padding: 10px;
+        }
+
+        #progress {
+            width: 320px;
+            height: 20px;
+            background-color: lightgray;
+            margin-top: 10px;
+        }
+
+        #bar {
+            width: 0%;
+            height: 100%;
+            background-color: green;
+        }
+    </style>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <h2>Text Length Counter</h2>
+
+    <textarea id="text" placeholder="Enter your text here..."></textarea>
+    <br><br>
+
+    <button id="countBtn">Count Characters</button>
+
+    <p>Live Character Counter: <span id="counter">0</span></p>
+
+    <p id="result">Click the button to see the text length.</p>
+
+    <p>Progress Bar:</p>
+    <div id="progress">
+        <div id="bar"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            // Maximum characters for progress bar
+            let maxLength = 100;
+
+            // Update counter while typing
+            $("#text").on("input", function() {
+                let length = $(this).val().length;
+
+                $("#counter").text(length);
+
+                // Update progress bar
+                let percentage = Math.min((length / maxLength) * 100, 100);
+                $("#bar").css("width", percentage + "%");
+            });
+
+            // Display text length on button click
+            $("#countBtn").click(function() {
+                let length = $("#text").val().length;
+
+                $("#result").text("Total characters entered: " + length);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

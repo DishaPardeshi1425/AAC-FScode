@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> Users</h1>
+    <div id = "output"></div>
+    <script>
+
+        const Users =[
+
+            {
+                name : "John",
+                age:25,
+            },
+            {
+                name: "Alice",
+                age :34,
+            },
+            {
+                name: "omkar",
+                age :23,
+            }
+        ];
+
+       const output = document.getElementById("output");
+
+       for(const index in Users)
+       {
+        output.innerHTML+=Users
+        "Name: "+ Users[index].name +"<br>"+
+        "Age: " +Users[index].age+ "<br";
+       }
+    </script>
+    
+</body>
+</html>

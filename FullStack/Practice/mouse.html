@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jQuery Events</title>
+
+    <!-- jQuery Library -->
+    <script src="Z:\JQuery\Jquery_Software.js"></script>
+
+    <style>
+        body {
+            height: 1500px;
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            padding: 20px;
+            background-color: lightblue;
+            width: 300px;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>jQuery Events</h1>
+
+    <!-- Mouse Enter -->
+    <p id="para">
+        Move your mouse over this paragraph.
+    </p>
+
+    <!-- Keyup -->
+    <input type="text" id="name" placeholder="Type something">
+
+    <!-- Focus -->
+    <input type="text" id="email" placeholder="Click here to focus">
+
+    <div id="output"></div>
+
+    <script>
+
+        // 1. mouseenter()
+        $("#para").mouseenter(function () {
+
+            $("#output").text("Mouse entered the paragraph");
+
+        });
+
+
+        // 2. keyup()
+        $("#name").keyup(function () {
+
+            $("#output").text("You released a keyboard key");
+
+        });
+
+        $("#para").mouseleave(function () {
+
+            $("#output").text("Mouse left the paragraph");
+
+        });
+
+
+        // 3. focus()
+        $("#email").focus(function () {
+
+            $("#output").text("The input box has focus");
+
+        });
+
+
+        // 4. scroll()
+        $(window).scroll(function () {
+
+            $("#output").text("You are scrolling the page");
+
+        });
+
+    </script>
+
+</body>
+</html>

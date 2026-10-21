@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cascading Style Sheets Demo</title>
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="typeofcss.css">
+
+    <!-- Embedded / Internal Stylesheet -->
+    <style>
+        .embedded-style {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .embedded-heading {
+            color: #d97706;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Demonstration of Cascading Style Sheets</h1>
+
+        <p class="intro">
+            This webpage demonstrates the three ways of applying CSS:
+            Inline, Embedded, and External stylesheets.
+        </p>
+
+        <!-- External CSS -->
+        <section class="card external-card">
+            <h2>1. External Stylesheet</h2>
+
+            <p>
+                The styles for this section are written in a separate
+                <strong>style.css</strong> file.
+            </p>
+
+            <p class="example-text">
+                This paragraph is styled using external CSS.
+            </p>
+        </section>
+
+
+        <!-- Embedded CSS -->
+        <section class="card embedded-style">
+            <h2 class="embedded-heading">2. Embedded Stylesheet</h2>
+
+            <p>
+                The styles for this section are written inside the
+                <strong>&lt;style&gt;</strong> tag in the HTML document.
+            </p>
+
+            <p>
+                This section uses internal or embedded CSS.
+            </p>
+        </section>
+
+
+        <!-- Inline CSS -->
+        <section
+            class="card"
+            style="
+                background-color: #e8f5e9;
+                border: 2px solid #22c55e;
+                color: #166534;
+            "
+        >
+            <h2 style="color: #15803d;">
+                3. Inline Style
+            </h2>
+
+            <p>
+                The styles for this section are applied directly to
+                HTML elements using the <strong>style</strong> attribute.
+            </p>
+
+            <p
+                style="
+                    background-color: white;
+                    padding: 12px;
+                    border-radius: 6px;
+                    color: #166534;
+                "
+            >
+                This paragraph is styled using inline CSS.
+            </p>
+        </section>
+
+
+        <div class="comparison">
+            <h2>CSS Types Summary</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>CSS Type</th>
+                        <th>Where It Is Written</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>External</td>
+                        <td>Separate .css file</td>
+                        <td>style.css</td>
+                    </tr>
+
+                    <tr>
+                        <td>Embedded</td>
+                        <td>Inside &lt;style&gt; tag</td>
+                        <td>HTML &lt;head&gt;</td>
+                    </tr>
+
+                    <tr>
+                        <td>Inline</td>
+                        <td>Inside HTML element</td>
+                        <td>style="color: red;"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

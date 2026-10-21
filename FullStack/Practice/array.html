@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Example</title>
+</head>
+
+<body>
+
+    <p>Click the button to access and display object properties</p>
+
+    <button onclick="workWithObject()">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+
+        function workWithObject()
+        {
+            // Create object
+            let student =
+            {
+                name: "Omkar",
+                age: 23,
+                rollNo: 25,
+                marks: 90
+            };
+
+            // Access existing property
+            let text = "Name: " + student.name + "<br>";
+            text += "Age: " + student.age + "<br>";
+            text += "Roll No: " + student.rollNo + "<br>";
+            text += "Marks: " + student.marks + "<br>";
+
+            // Add a new property
+            student.city = "Pune";
+        
+            // Display newly added property
+            text += "City: " + student.city + "<br>";
+
+            //
+
+            // Display all properties
+            document.getElementById("demo").innerHTML = text;
+        }
+
+    </script>
+
+</body>
+</html>

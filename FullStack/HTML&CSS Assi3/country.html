@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Display Capital</title>
+
+    <style>
+        /* Blinking effect for header */
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Style for capital */
+        .capital {
+            color: blue;
+            font-weight: bold;
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="blink">Display Capital</h1>
+
+    <label for="country">Select Country:</label>
+
+    <select id="country" onchange="displayCapital()">
+        <option value="">-- Select a Country --</option>
+        <option value="Canberra">Australia</option>
+        <option value="Ottawa">Canada</option>
+        <option value="Berlin">Germany</option>
+        <option value="Brasília">Brazil</option>
+        <option value="Beijing">China</option>
+
+    </select>
+
+    <span id="capital" class="capital"></span>
+
+    <script>
+        function displayCapital() {
+            let country = document.getElementById("country");
+            let capital = document.getElementById("capital");
+
+            capital.innerHTML = country.value;
+        }
+    </script>
+
+</body>
+</html>

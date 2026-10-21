@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Image</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Rectangle drop area */
+        #rectangle {
+            width: 400px;
+            height: 250px;
+            border: 4px dashed #3498db;
+            background-color: white;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        /* Highlight rectangle when image is dragged over it */
+        #rectangle.dragover {
+            background-color: #e3f2fd;
+            border-color: #2ecc71;
+        }
+
+        /* Draggable image */
+        #dragImage {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            cursor: grab;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #dragImage:active {
+            cursor: grabbing;
+        }
+
+        #message {
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Drag and Drop Image</h1>
+
+    <p>Drag the image and drop it inside the rectangle.</p>
+
+    <!-- Rectangle -->
+    <div id="rectangle">
+        Drop Image Here
+    </div>
+
+    <!-- Image -->
+    <img
+        id="dragImage"
+        src="coding_image.jpg"
+        alt="Draggable Image"
+        draggable="true"
+    >
+
+    <p id="message"></p>
+
+
+    <script>
+        const image = document.getElementById("dragImage");
+        const rectangle = document.getElementById("rectangle");
+        const message = document.getElementById("message");
+
+        // When dragging starts
+        image.addEventListener("dragstart", function(event) {
+            event.dataTransfer.setData("text/plain", event.target.id);
+        });
+
+        // Allow dropping
+        rectangle.addEventListener("dragover", function(event) {
+            event.preventDefault();
+            rectangle.classList.add("dragover");
+        });
+
+        // Remove highlight when image leaves rectangle
+        rectangle.addEventListener("dragleave", function() {
+            rectangle.classList.remove("dragover");
+        });
+
+        // When image is dropped
+        rectangle.addEventListener("drop", function(event) {
+            event.preventDefault();
+
+            rectangle.classList.remove("dragover");
+
+            const imageId = event.dataTransfer.getData("text/plain");
+            const droppedImage = document.getElementById(imageId);
+
+            // Place image inside rectangle
+            rectangle.innerHTML = "";
+            rectangle.appendChild(droppedImage);
+
+            // Make image fit inside rectangle
+            droppedImage.style.width = "90%";
+            droppedImage.style.height = "90%";
+            droppedImage.style.objectFit = "contain";
+
+            message.textContent = "Image successfully dropped!";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5 Question 2</title>
+</head>
+<body>
+   <h1> HTML5 features</h1>
+    <h2>1.Current: Location</h2>
+
+    <button onClick="getLocation()">Where am I?</button>
+    <p id="location">Click the button to find your current location</p>
+
+    <h2>2. Star Using Canvas</h2>
+    <canvas id="myCanvas"
+            width="300"
+            height="300"
+            style="border:1px solid black;">
+    </canvas>
+
+    <h2>3. Star Using SVG</h2>
+    <svg  width="300"
+          height="300"
+          style="border:1px solid black;">
+
+          <polygon
+              points="150,30
+                       178,115
+                        268,115
+                        195,170
+                        225,255
+                        105,170
+                         32,115
+                         122,115"
+               fill="yellow"
+               stroke="black"
+               stroke-width="3">
+            </polygon>          
+
+    </svg>
+
+    <h2>4.Audio</h2>
+    <audio controls> 
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support audio
+    </audio> 
+    <h2>5. Video</h2>
+    <br>
+
+    <video width="500" controls>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support video
+    </video>
+
+    <script>
+
+        function getLocation()
+        {
+            if(navigator.getLocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition,showError)
+        }
+        else
+        {
+           document.getElementById("location").innerHTML = "Geolocation is not supported by this browser";
+
+        }
+        }
+
+        function showPosition(position)
+        {
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+
+            document.getElementById("location").innerHTML =
+               "Latitude:"+latitude +
+               "<br>"+
+               "Longitude"+longitude;
+        }
+
+        function showError(error)
+        {
+             if(error.code==1)
+             {
+                 document.getElementById("location").innerHTML =
+                 "Permission denied. Please allow location access";
+             }
+
+             else if(error.code==2)
+             {
+                  document.getElementById("location").inneerHTML = 
+                  "location information is unavailable";
+             }
+
+             else if(error.code==3)
+             {
+                document.getElementById("location").innerHTML = 
+                 "Location request time out";
+             }
+
+             else{
+                 document.getElementById("location").innerHTML = 
+                 "An unknown error occurred";
+             }
+        }
+
+        let canvas = document.getElementById("myCanvas");
+
+        let ctx = canvas.getContext("2d");
+
+        let centerX = 150;
+        let centery = 150;
+
+        let outerRadius = 100;
+        let innerRadius = 40;
+
+        ctx.beginPath();
+
+        for(let i=0;i,10;i++)
+        {
+             let angle = -Math.PI/2+i*Math.PI/5;
+
+             let radius;
+
+             if(i%2==0)
+             {
+                radius = outerRadius;
+             }
+             else
+             {
+                radius = innerRadius;
+             }
+
+             let x = centerX + radius * Math.cos(angle);
+
+             let y = centerY + radius * Math.sin(angle);
+             
+             if(i==0)
+             {
+                ctx.moveTo(x,y)
+             }
+
+             else{
+                ctx.lineTo(x,y);
+             }
+        }
+        ctx.closePath();
+
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth=3;
+        ctx.stroke();
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Functions</title>
+</head>
+<body>
+
+    <h2>Callback Functions in JavaScript</h2>
+
+    <p>Original Array: [2, 3, 4, 5, 6]</p>
+
+    <button onclick="showSquare()">Square</button>
+    <button onclick="showCube()">Cube</button>
+    <button onclick="showEvenOdd()">Even or Odd</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Array of numbers
+        let numbers = [2, 3, 4, 5, 6];
+
+        // Function to process the array using a callback
+        function processArray(arr, callback) {
+            let result = "";
+
+            for (let i = 0; i < arr.length; i++) {
+                result += arr[i] + " : " + callback(arr[i]) + "<br>";
+            }
+
+            return result;
+        }
+
+        // Callback function to calculate square
+        function square(num) {
+            return num * num;
+        }
+
+        // Callback function to calculate cube
+        function cube(num) {
+            return num * num * num;
+        }
+
+        // Callback function to check even or odd
+        function evenOdd(num) {
+            if (num % 2 === 0) {
+                return "Even";
+            } else {
+                return "Odd";
+            }
+        }
+
+        // Function calls passing callbacks as arguments
+        function showSquare() {
+            document.getElementById("output").innerHTML =
+                "<h3>Square</h3>" + processArray(numbers, square);
+        }
+
+        function showCube() {
+            document.getElementById("output").innerHTML =
+                "<h3>Cube</h3>" + processArray(numbers, cube);
+        }
+
+        function showEvenOdd() {
+            document.getElementById("output").innerHTML =
+                "<h3>Even or Odd</h3>" + processArray(numbers, evenOdd);
+        }
+    </script>
+
+</body>
+</html>

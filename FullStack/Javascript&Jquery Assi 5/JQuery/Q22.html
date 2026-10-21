@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Operations</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 5px 15px;
+        }
+
+        button:disabled {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Arithmetic Operations</h3>
+
+    <label>First Number:</label>
+    <input type="number" id="num1" onblur="enableDisable()">
+    <br><br>
+
+    <label>Second Number:</label>
+    <input type="number" id="num2" onblur="enableDisable()">
+    <br><br>
+
+    <button id="add" disabled>+</button>
+    <button id="sub" disabled>-</button>
+    <button id="mul" disabled>*</button>
+    <button id="div" disabled>/</button>
+
+    <br><br>
+
+    <label>Result:</label>
+    <input type="text" id="result" readonly>
+
+    <script>
+        $(document).ready(function() {
+
+            // Addition
+            $("#add").click(function() {
+                var a = Number($("#num1").val());
+                var b = Number($("#num2").val());
+                $("#result").val(a + b);
+            });
+
+            // Subtraction
+            $("#sub").click(function() {
+                var a = Number($("#num1").val());
+                var b = Number($("#num2").val());
+                $("#result").val(a - b);
+            });
+
+            // Multiplication
+            $("#mul").click(function() {
+                var a = Number($("#num1").val());
+                var b = Number($("#num2").val());
+                $("#result").val(a * b);
+            });
+
+            // Division
+            $("#div").click(function() {
+                var a = Number($("#num1").val());
+                var b = Number($("#num2").val());
+
+                if (b == 0) {
+                    $("#result").val("Cannot divide by zero");
+                } else {
+                    $("#result").val(a / b);
+                }
+            });
+
+        });
+
+        // Enable or disable all buttons
+        function enableDisable() {
+            var a = $("#num1").val();
+            var b = $("#num2").val();
+
+            if (a !== "" && b !== "") {
+                $("button").prop("disabled", false);
+            } else {
+                $("button").prop("disabled", true);
+            }
+        }
+    </script>
+
+</body>
+</html>

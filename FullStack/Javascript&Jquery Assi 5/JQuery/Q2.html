@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error Class</title>
+ <script src=JQuery.js></script>
+    <style>
+        .error {
+            border: 2px solid red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <label>Enter Text:</label>
+    <input type="text" id="txt">
+
+    <script>
+        $(document).ready(function() {
+
+            $("#txt").blur(function() {
+                if ($(this).val().length > 10) {
+                    $(this).addClass("error");
+                } else {
+                    $(this).removeClass("error");
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

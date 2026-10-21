@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Portal DashBoard</title>
+<style>
+*{
+margin:0px;
+padding:0px;
+
+background-color:none;
+
+}
+#dashboard{
+margin:20px;
+padding:30px;
+color:red;
+background-color:aqua;
+
+}
+#nav{
+marging:155px;
+padding:20px;
+background-color:lightblue;
+
+
+}
+#nav a{
+margin:50px;
+}
+#timetable{
+
+margin:20px;
+padding:20px;
+background-color:lightorange;
+}
+.sidebar{
+    width:280px;
+    background:#f2f2f2;
+    padding:20px;
+    border-radius:10px;
+}
+
+</style>
+</head>
+<body>
+<div id="dashboard">
+<center>
+<h1> Student Dashboard Portal</h1>
+</center>
+</div>
+<nav id="nav">
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<br>
+<br>
+<center>
+<div class="main">
+<span id="timetable">
+<h1 align="center"> MSc.Computer Science Time Table Sem-I</h1>
+<table border="1px" align="center" cellpadding="0" cellspacing="0">
+<caption> TimeTable</caption>
+<thead>
+<tr>
+<th>Time</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+<th>Saturday</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 9-10</td>
+<td>PPA</td>
+<td>PPA</td>
+<td>PPA</td>
+<td>PPA</td>
+<td>PPA</td>
+<td>PPA</td>
+</tr>
+<tr>
+<td> 10-11</td>
+<td> OS</td>
+<td></td>
+<td>AAC</td>
+<td>RM</td>
+<td>FS</td>
+<td>RM</td>
+</tr>
+<tr>
+<td> 11-12</td>
+<td>FS</td>
+<td>FS</td>
+<td>AAC</td>
+<td>RM</td>
+<td>OS</td>
+<td>RM</td>
+</tr>
+
+<tr>
+<td> 12 - 1</td>
+<td> OS</td>
+<td>AAC</td>
+<td>FS</td>
+<td>AAC</td>
+<td>OS</td>
+<td>PYTHON(lab)</td>
+
+</tr>
+
+<tr>
+<td> 1-2</td>
+
+<td colspan="6"></td>
+
+</tr>
+
+<tr>
+<td> 2-3</td>
+<td rowspan="2">FS-AAC(lab)</td>
+<td rowspan="2">FS-AAC(lab)</td>
+<td rowspan="2">FS-AAC(lab)</td>
+<td rowspan="2">PYTHON(lab)</td>
+<td rowspan="2">PYTHON(lab)</td>
+<td rowspan="2">PYTHON(lab)</td>
+
+</tr>
+<tr>
+<td> 3-4 </td>
+<
+</tr>
+</tbody>
+</table>
+</span>
+<span id="sidebar">
+<h1> Admission Enquiry Form</h1>
+
+<form method="Post">
+<label for="Name"> Student Name</label>
+<input type="text" id="Name" name="Name" required autofocous>
+<br>
+<label for="Gender">Gender</label>
+<input type="radio" id="Gender" name="Gender" value="Male">Male &nbsp; &nbsp;
+<input type="radio" id="Gender" name="Gender" value="Female">Female &nbsp; &nbsp;
+<br>
+<label for="Course">Courses</label>
+<input type="checkbox" id="Course" value="AOS">AOS &nbsp; &nbsp; &nbsp; &nbsp;
+<input type="checkbox" id="Course" value="BI">BI &nbsp;  &nbsp;
+<br>
+<label for="states">State</label>
+<select name="state">
+<option value="">Select</option>
+<option value="AndhraPradesh">AndhraPradesh</option>
+<option value="Chattisgarh">Chattisgarh</option>
+<option value="Maharastra">Maharastra</option>
+<option value="Gujrat">Gujrat</option>
+<option value="Chennai">Chennai</option>
+
+
+</select>
+<br>
+<br>
+<label for="Query">Ask Query</label>
+<br>
+<textarea rows="4"></textarea>
+<br>
+<input type="Submit" value="submit">
+
+</span>
+
+</div>
+</body>
+</html>

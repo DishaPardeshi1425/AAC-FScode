@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jQuery AJAX Events</title>
+
+    <!-- jQuery local file -->
+    <script src="JQuery_Software.js"></script>
+</head>
+
+<body>
+
+    <h2>jQuery AJAX Events</h2>
+
+    <button id="loadData">Load Data</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        // 1. ajaxStart
+        $(document).ajaxStart(function () {
+            console.log("1. ajaxStart: AJAX request started");
+        });
+
+
+        // 2. ajaxSend
+        $(document).ajaxSend(function () {
+            console.log("2. ajaxSend: AJAX request is being sent");
+        });
+
+
+        // 3. ajaxSuccess
+        $(document).ajaxSuccess(function () {
+            console.log("3. ajaxSuccess: AJAX request was successful");
+        });
+
+
+        // 4. ajaxComplete
+        $(document).ajaxComplete(function () {
+            console.log("4. ajaxComplete: AJAX request completed");
+        });
+
+
+        // 5. ajaxStop
+        $(document).ajaxStop(function () {
+            console.log("5. ajaxStop: All AJAX requests have stopped");
+        });
+
+
+        // 6. ajaxError
+        $(document).ajaxError(function () {
+            console.log("6. ajaxError: AJAX request failed");
+        });
+
+
+        // Button click
+        $("#loadData").click(function () {
+
+            $.ajax({
+                url: "try.html",
+                type: "GET",
+
+                success: function (data) {
+
+                    // Display try.html inside this page
+                    $("#result").html(data);
+
+                    console.log("Data received:");
+                    console.log(data);
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

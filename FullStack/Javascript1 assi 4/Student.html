@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+</head>
+<body>
+
+    <h1>Student Information</h1>
+
+    <label>Student ID:</label>
+    <input type="text" id="studentId">
+    <br><br>
+
+    <label>Name:</label>
+    <input type="text" id="name">
+    <br><br>
+
+    <label>Course:</label>
+    <input type="text" id="course">
+    <br><br>
+
+    <label>Email:</label>
+    <input type="email" id="email">
+    <br><br>
+
+    <h3>Enter Marks</h3>
+
+    <input type="number" id="mark1" placeholder="Subject 1">
+    <input type="number" id="mark2" placeholder="Subject 2">
+    <input type="number" id="mark3" placeholder="Subject 3">
+    <input type="number" id="mark4" placeholder="Subject 4">
+    <input type="number" id="mark5" placeholder="Subject 5">
+
+    <br><br>
+
+    <button id="submitBtn">Add Student</button>
+
+    <hr>
+
+    <h2>Student Details</h2>
+
+    <div id="studentDetails"></div>
+
+    <script>
+
+        // Get button from HTML
+        const submitBtn = document.getElementById("submitBtn");
+
+        // Add click event
+        submitBtn.addEventListener("click", function () {
+
+            // Get values from HTML
+            const studentId = document.getElementById("studentId").value;
+            const name = document.getElementById("name").value;
+            const course = document.getElementById("course").value;
+            const email = document.getElementById("email").value;
+
+            const mark1 = Number(document.getElementById("mark1").value);
+            const mark2 = Number(document.getElementById("mark2").value);
+            const mark3 = Number(document.getElementById("mark3").value);
+            const mark4 = Number(document.getElementById("mark4").value);
+            const mark5 = Number(document.getElementById("mark5").value);
+
+            // Create marks array
+            const marks = [mark1, mark2, mark3, mark4, mark5];
+
+            // Create student object
+            const student = {
+                studentId: studentId,
+                name: name,
+                course: course,
+                marks: marks,
+                email: email
+            };
+
+            // Calculate average
+            let total = 0;
+
+            for (let mark of student.marks) {
+                total = total + mark;
+            }
+
+            const average = total / student.marks.length;
+
+            // Determine grade
+            let grade;
+
+            if (average >= 90) {
+                grade = "A";
+            } else if (average >= 80) {
+                grade = "B";
+            } else if (average >= 70) {
+                grade = "C";
+            } else if (average >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+
+            // Get output div
+            const studentDetails = document.getElementById("studentDetails");
+
+            // Display data using DOM
+            studentDetails.innerHTML = `
+                <h3>Student Information</h3>
+
+                <p><strong>Student ID:</strong> ${student.studentId}</p>
+                <p><strong>Name:</strong> ${student.name}</p>
+                <p><strong>Course:</strong> ${student.course}</p>
+                <p><strong>Email:</strong> ${student.email}</p>
+                <p><strong>Marks:</strong> ${student.marks.join(", ")}</p>
+                <p><strong>Average:</strong> ${average}</p>
+                <p><strong>Grade:</strong> ${grade}</p>
+            `;
+
+        });
+
+    </script>
+
+</body>
+</html>

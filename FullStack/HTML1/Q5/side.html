@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admission Enquiry Form</title>
+
+<style>
+#div1{
+margin-top:20px;
+padding-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="div1">
+
+<h1>Admission Enquiry Form</h1>
+
+<form method="post">
+
+<label for="Name">Student Name</label>
+<input type="text" id="Name" name="Name" required autofocus>
+
+<br><br>
+
+<label>Gender</label>
+<input type="radio" name="Gender" value="Male">Male
+<input type="radio" name="Gender" value="Female">Female
+
+<br><br>
+
+<label>Courses</label>
+<input type="checkbox" name="Course" value="AOS">AOS
+<input type="checkbox" name="Course" value="BI">BI
+
+<br><br>
+
+<label for="state">State</label>
+
+<select name="state" id="state">
+<option value="">Select</option>
+<option value="AndhraPradesh">Andhra Pradesh</option>
+<option value="Chattisgarh">Chattisgarh</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Gujarat">Gujarat</option>
+<option value="TamilNadu">Tamil Nadu</option>
+</select>
+
+<br><br>
+
+<label for="Query">Ask Query</label>
+
+<br>
+
+<textarea id="Query" name="Query" rows="4" cols="30"></textarea>
+
+<br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</div>
+
+</body>
+</html>

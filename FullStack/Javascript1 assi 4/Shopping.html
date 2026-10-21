@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Shopping System</title>
+</head>
+<body>
+
+    <h2>Online Shopping System</h2>
+
+    <button onclick="displayProducts()">Display All Products</button>
+    <button onclick="showCartValue()">Total Cart Value</button>
+    <button onclick="showDiscount()">Apply 10% Discount</button>
+    <button onclick="showElectronics()">Find Electronics</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Array of product objects
+        let products = [
+            {
+                productId: 1,
+                name: "Laptop",
+                category: "Electronics",
+                price: 50000,
+                quantity: 2
+            },
+            {
+                productId: 2,
+                name: "Mobile",
+                category: "Electronics",
+                price: 20000,
+                quantity: 3
+            },
+            {
+                productId: 3,
+                name: "T-Shirt",
+                category: "Clothing",
+                price: 500,
+                quantity: 4
+            },
+            {
+                productId: 4,
+                name: "Shoes",
+                category: "Footwear",
+                price: 2000,
+                quantity: 2
+            },
+            {
+                productId: 5,
+                name: "Headphones",
+                category: "Electronics",
+                price: 1500,
+                quantity: 5
+            }
+        ];
+
+        // 1. Display all products
+        function displayProducts() {
+            let result = "<h3>All Products</h3>";
+
+            for (let i = 0; i < products.length; i++) {
+                result += products[i].name +
+                    " | Category: " + products[i].category +
+                    " | Price: ₹" + products[i].price +
+                    " | Quantity: " + products[i].quantity + "<br>";
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+
+        // 2. Calculate total cart value
+        function calculateCartValue() {
+            let total = 0;
+
+            for (let i = 0; i < products.length; i++) {
+                total += products[i].price * products[i].quantity;
+            }
+
+            return total;
+        }
+
+        function showCartValue() {
+            document.getElementById("output").innerHTML =
+                "<h3>Total Cart Value: ₹" +
+                calculateCartValue() + "</h3>";
+        }
+
+        // 3. Apply discount
+        function applyDiscount(total, discountPercent) {
+            let discount = total * discountPercent / 100;
+            return total - discount;
+        }
+
+        function showDiscount() {
+            let total = calculateCartValue();
+            let finalAmount = applyDiscount(total, 10);
+
+            document.getElementById("output").innerHTML =
+                "<h3>Shopping Bill</h3>" +
+                "Original Total: ₹" + total + "<br>" +
+                "Discount: 10%<br>" +
+                "Final Amount: ₹" + finalAmount;
+        }
+
+        // 4. Callback function to process products
+        function processProducts(callback) {
+            let result = "";
+
+            for (let i = 0; i < products.length; i++) {
+                if (callback(products[i])) {
+                    result += products[i].name +
+                        " | Category: " + products[i].category +
+                        " | Price: ₹" + products[i].price + "<br>";
+                }
+            }
+
+            return result;
+        }
+
+        // Condition: product category is Electronics
+        function isElectronics(product) {
+            return product.category === "Electronics";
+        }
+
+        function showElectronics() {
+            let result = processProducts(isElectronics);
+
+            document.getElementById("output").innerHTML =
+                "<h3>Electronics Products</h3>" + result;
+        }
+    </script>
+
+</body>
+</html>

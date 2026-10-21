@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Calculator</title>
+</head>
+
+<body>
+
+    <h1>Mini Calculator</h1>
+    <br>
+
+    Enter first value:
+    <input type="text" id="val1"><br><br>
+
+    Enter Second Value:
+    <input type="text" id="val2"><br><br>
+
+    <button id="add" onclick="Add()">Addition</button>
+    <button id="sub" onclick="Sub()">Subtraction</button>
+    <button id="mul" onclick="Mul()">Multiplication</button>
+    <button id="div" onclick="Div()">Division</button><br><br>
+
+    Result:
+    <input type="text" id="res">
+
+    <script>
+
+        function Add() {
+            let v1 = Number(document.getElementById("val1").value);
+            let v2 = Number(document.getElementById("val2").value);
+
+            document.getElementById("res").value = v1 + v2;
+        }
+
+        function Sub() {
+            let v1 = Number(document.getElementById("val1").value);
+            let v2 = Number(document.getElementById("val2").value);
+
+            document.getElementById("res").value = v1 - v2;
+        }
+
+        function Mul() {
+            let v1 = Number(document.getElementById("val1").value);
+            let v2 = Number(document.getElementById("val2").value);
+
+            document.getElementById("res").value = v1 * v2;
+        }
+
+        function Div() {
+            let v1 = Number(document.getElementById("val1").value);
+            let v2 = Number(document.getElementById("val2").value);
+
+            document.getElementById("res").value = v1 / v2;
+        }
+
+    </script>
+
+</body>
+</html>

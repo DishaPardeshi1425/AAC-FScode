@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Toggle Example</title>
+
+    <script src="Z:\JQuery\Jquery_Software.js"></script>
+</head>
+
+<body>
+
+    <p>This is my paragraph.</p>
+
+    <button id="clickBtn">Click</button>
+    <button id="dblClickBtn">Double Click</button>
+    <button id="toggleBtn">Toggle</button>
+
+    <button id="fadeInBtn">Fade In</button>
+    <button id="fadeOutBtn">Fade Out</button> 
+    <button id="fadeToggleBtn">Fade Toggle</button>
+    
+
+
+    <script>
+
+        
+        $("#clickBtn").click(function () {
+
+            $("p").hide("slow", function () {
+
+               
+                alert("Paragraph is hidden after click");
+
+            });
+
+        });
+
+
+        $("#dblClickBtn").dblclick(function () {
+
+            $("p").show("slow", function () {
+
+                alert("Paragraph is shown after double click");
+
+            });
+
+        });
+
+        $("#toggleBtn").click(function () {
+
+            $("p").toggle("slow", function () {
+
+                
+                alert("Toggle operation is completed");
+
+            });
+
+        });
+
+
+          $("p").mouseenter(function () {
+
+            alert("Mouse entered the paragraph");
+
+        });
+
+
+        
+        $("p").mouseleave(function () {
+
+            alert("Mouse left the paragraph");
+
+        });
+
+        
+        $("#fadeInBtn").click(function () { 
+            
+            $("p").fadeIn("slow", function () {
+                
+                alert("Paragraph has faded in");
+             });
+            
+            });
+
+        
+         $("#fadeOutBtn").click(function () {
+            
+            $("p").fadeOut("slow", function () { 
+                
+                alert("Paragraph has faded out");
+             }); 
+            
+            }); 
+         
+
+         $("#fadeToggleBtn").click(function () {
+            
+            $("p").fadeToggle("slow", function () {
+                
+                alert("Fade toggle operation is completed"); 
+            }); 
+        });
+
+       
+
+    </script>
+
+</body>
+</html>
